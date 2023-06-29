@@ -1,0 +1,20 @@
+<h1>{{titulo}}</h1>
+
+<table id="listaTbl">
+    <tr>
+        <th>Apellido</th>
+        <th>Nombre</th>
+        <th>Email</th>
+        <th>F.Nacimiento</th>
+        <th>Edad</th>
+        <th>Es Mayor?</th>
+    </tr>
+    <tr *ngFor="let alumno of listadoAlumnos">
+        <td>{{alumno.Apellido}}</td>
+        <td>{{alumno.Nombre}}</td>
+        <td>{{alumno.Email}}</td>
+        <td>{{alumno.FNacimiento | date:'dd/MM/yyyy':'GMT+0'}}</td>
+        <td>{{ calcularEdad(alumno.FNacimiento ) }}</td>
+        <td [ngClass]="calcularEdad(alumno.FNacimiento) > 18 ? 'esMayor' : ''"></td>
+    </tr>
+</table>
